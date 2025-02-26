@@ -1,0 +1,67 @@
+[package]
+name = "hid"
+version = "0.1.0"
+edition = "2021"
+description = "boop"
+authors = ["Gnome101"]
+license = "MIT OR Apache-2.0"
+homepage = "ball"
+repository = "https://github.com/gnome/hid"
+readme = "README.md"
+categories = ["cryptography", "cryptography::cryptocurrencies"]
+keywords = ["tangle", "blueprint", "avs"]
+rust-version = "1.81"
+
+[dependencies]
+# Gadget
+blueprint-sdk = { git = "https://github.com/tangle-network/gadget.git", default-features = false, features = [
+    "std",
+    "eigenlayer",
+    "evm",
+    "macros",
+    "build",
+] }
+serde = { version = "1.0.208", features = ["derive"] }
+
+
+# Silent Threshold Encryption dependencies
+k256 = { version = "0.13.3", default-features = false }
+silent-threshold-encryption = { git = "https://github.com/guruvamsi-policharla/silent-threshold-encryption.git" }
+ark-std = { version = "0.5.0" }
+ark-ec = { version = "0.5.0" }
+ark-ff = { version = "0.5.0" }
+ark-poly = { version = "0.5.0" }
+ark-bls12-381 = { version = "0.5.0" }
+ark-bn254 = { version = "0.5.0" }
+ark-serialize = { version = "0.5.0" }
+rand = "0.8.1"
+round-based = "0.4.1"
+
+[build-dependencies]
+blueprint-sdk = { git = "https://github.com/tangle-network/gadget.git", default-features = false, features = [
+    "std",
+    "build",
+] }
+
+[features]
+default = ["std"]
+std = ["blueprint-sdk/std"]
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "hid"
+path = "src/main.rs"
+
+[package.metadata.blueprint]
+manager = { Evm = "TangleTaskManager" }
+
+[[package.metadata.gadget.Native.sources]]
+owner = "gnome"
+repo = "hid"
+tag = "0.1.0"
+binaries = [
+    { arch = "Amd64", os = "Linux", name = "amd64-linux-hid-gadget" },
+    { arch = "Arm64", os = "Linux", name = "arm64-linux-hid-gadget" },
+]

@@ -4144,7 +4144,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "18e4fdb82bd54a12e42fb58a800dcae6b9e13982238ce2296dc3570b92148e1f"
 dependencies = [
  "data-encoding",
- "syn 2.0.98",
+ "syn 1.0.109",
 ]
 
 [[package]]
@@ -7172,7 +7172,7 @@ dependencies = [
  "ark-std 0.5.0",
  "blueprint-sdk",
  "k256",
- "rand 0.8.5",
+ "rand 0.9.0",
  "round-based",
  "serde",
  "silent-threshold-encryption",

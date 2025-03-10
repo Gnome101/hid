@@ -21,7 +21,7 @@ blueprint-sdk = { git = "https://github.com/tangle-network/gadget.git", default-
     "macros",
     "build",
 ] }
-serde = { version = "1.0.208", features = ["derive"] }
+serde = { version = "1.0.219", features = ["derive"] }
 
 
 # Silent Threshold Encryption dependencies
